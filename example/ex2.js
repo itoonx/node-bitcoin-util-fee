@@ -8,6 +8,6 @@ const getMultisigTransactionFees = (input_num, m, n) => util.getCurrentBytePerSa
     Math.max(util.tx_calc_fee( util.tx_calc_byte(util.p2sh_calc_input_byte(m,n), input_num, 1), satoshi ), MIN_FEE)
 )
 
-getMultisigTransactionFees(KEY_SIGN_NUM, KEY_NUM, 1).then(console.log)
+getMultisigTransactionFees(1, KEY_SIGN_NUM, KEY_NUM).then(console.log)
 
 
