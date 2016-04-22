@@ -8,6 +8,7 @@
 
 * 送金に使用する未使用トランザクションの数
 * マルチシグであれば鍵の数、署名の数
+* 混雑状況
 
 ## 例：P2PKH
 
@@ -40,5 +41,23 @@ var getBaseTransactionFees = function(m, n, input_num){
 }
 console.log(getBaseTransactionFees(KEY_SIGN_NUM, KEY_NUM, 1))
 ```
+
+## ネットワークの混雑状況から最適な手数料を得る
+
+21.coが混雑状況に合わせた手数料レートをAPI公開しているのでそれを使う
+
+```
+'use strict'
+const util = require('../');
+const MIN_FEE = 10000;
+
+const getTransactionFees = input_num => util.getCurrentBytePerSatoshi().then( satoshi =>
+    Math.max(util.tx_calc_fee( util.tx_calc_byte(util.p2pkh_calc_input_byte(), input_num, 1), satoshi ), MIN_FEE)
+)
+
+getTransactionFees(1).then(console.log)
+```
+
+
 
 
