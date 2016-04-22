@@ -1,0 +1,30 @@
+{
+  "author": "Yuki Akiyama",
+  "name": "bitcoin-fee-util",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "request-promise" : ""
+  },
+  "readmeFilename": "README.md",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/you21979/node-bitcoin-fee-util.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "insight",
+    "blockexplorer"
+  ],
+  "bugs": {
+    "url": "https://github.com/you21979/node-bitcoin-fee-util/issues"
+  },
+  "license": "MIT"
+}
