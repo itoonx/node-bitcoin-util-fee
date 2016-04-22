@@ -1,6 +1,6 @@
 {
   "author": "Yuki Akiyama",
-  "name": "bitcoin-fee-util",
+  "name": "bitcoin-util-fee",
   "version": "0.0.1",
   "private": false,
   "dependencies": {
