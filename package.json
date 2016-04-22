@@ -19,9 +19,7 @@
     "url": "git://github.com/you21979/node-bitcoin-fee-util.git"
   },
   "keywords": [
-    "bitcoin",
-    "insight",
-    "blockexplorer"
+    "bitcoin"
   ],
   "bugs": {
     "url": "https://github.com/you21979/node-bitcoin-fee-util/issues"
