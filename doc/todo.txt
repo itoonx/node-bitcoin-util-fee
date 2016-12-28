@@ -1,0 +1,4 @@
+segwit
+
+https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki
+https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki
