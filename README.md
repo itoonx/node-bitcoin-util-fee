@@ -1,5 +1,9 @@
 # node-bitcoin-fee-util
 
+[![NPM](https://nodei.co/npm/bitcoin-util-fee.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/bitcoin-util-fee)  
+[![Build Status](https://secure.travis-ci.org/you21979/node-bitcoin-util-fee.png?branch=master)](https://travis-ci.org/you21979/node-bitcoin-util-fee)
+[![Coverage Status](https://coveralls.io/repos/github/you21979/node-bitcoin-util-fee/badge.svg?branch=master)](https://coveralls.io/github/you21979/node-bitcoin-util-fee?branch=master)
+
 ## 手数料の求め方
 
 ビットコインの手数料はトランザクションの送信バイト数によって決まる  
