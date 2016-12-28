@@ -1,5 +1,4 @@
 'use strict'
-var GET_FEES_API_URL = 'https://bitcoinfees.21.co/api/v1/fees/recommended';
 var BASE_BYTE_PER_SATOSHI = 10;
 
 var p2sh_calc_input_byte = exports.p2sh_calc_input_byte = function(m, n){
@@ -19,11 +18,4 @@ var tx_calc_fee = exports.tx_calc_fee = function(byte, byte_per_satoshi){
 }
 
 var getBaseBytePerSatoshi = exports.getBaseBytePerSatoshi = function(){ return BASE_BYTE_PER_SATOSHI }
-
-var rp = require('request-promise');
-var getCurrentBytePerSatoshi = exports.getCurrentBytePerSatoshi = function(){
-    return rp(GET_FEES_API_URL).then(JSON.parse).then(function(res){
-        return res['hourFee'];
-    });
-}
 

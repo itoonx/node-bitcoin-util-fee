@@ -1,15 +1,15 @@
 {
   "author": "Yuki Akiyama",
   "name": "bitcoin-util-fee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "dependencies": {
-    "request-promise" : ""
   },
   "readmeFilename": "README.md",
   "description": "",
   "main": "index.js",
   "devDependencies": {
+    "bitcoinfees-21co" : ""
   },
   "scripts": {
     "test": ""
