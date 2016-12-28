@@ -6,10 +6,10 @@
   "dependencies": {
   },
   "readmeFilename": "README.md",
-  "description": "",
+  "description": "utility of bitcoin transaction size calculate",
   "main": "index.js",
   "devDependencies": {
-    "bitcoinfees-21co" : ""
+    "bitcoinfees-21co" : "0.0.x"
   },
   "scripts": {
     "test": ""
@@ -19,7 +19,9 @@
     "url": "git://github.com/you21979/node-bitcoin-fee-util.git"
   },
   "keywords": [
-    "bitcoin"
+    "bitcoin",
+    "transaction",
+    "fees"
   ],
   "bugs": {
     "url": "https://github.com/you21979/node-bitcoin-fee-util/issues"
