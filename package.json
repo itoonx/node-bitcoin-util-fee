@@ -9,10 +9,14 @@
   "description": "utility of bitcoin transaction size calculate",
   "main": "index.js",
   "devDependencies": {
+    "mocha" : "",
+    "istanbul":"",
+    "coveralls":"",
     "bitcoinfees-21co" : "0.0.x"
   },
   "scripts": {
-    "test": ""
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
