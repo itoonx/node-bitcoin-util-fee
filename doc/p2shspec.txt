@@ -1,1 +1,12 @@
-https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki
+2of3 multisig
+
+PREVOUT: hash (32 bytes)
+         index (4 bytes)
+SCRIPTSIG: length(3byte)
+           OP_0(1 byte)
+           sig1(74 byte) sig2(74 byte) OP_2(1 byte)
+           pubkey1(34 byte) pubkey2(34 byte) pubkey3(34 byte) OP_3(1 byte)
+           CHECKMULTISIG(1 byte)
+sequence (4 bytes)
+
+= 297byte
