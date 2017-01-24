@@ -3,7 +3,7 @@ var TxFees = exports;
 
 var OPCODE_LEN = 1;
 var PUBKEY_LEN = 33 + OPCODE_LEN;
-var SIG_LEN = 73 + OPCODE_LEN;
+var SIG_LEN = 72 + OPCODE_LEN;
 var PREVOUT_LEN = 32 + 4;
 var SEQUENCE_LEN = 4;
 var AMOUNT_LEN = 8;
