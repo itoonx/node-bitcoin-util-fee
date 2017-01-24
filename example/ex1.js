@@ -1,14 +1,22 @@
 'use strict'
 const bitcoinfees = require('bitcoinfees-21co');
 const util = require('../');
-const MIN_FEE = 10000;
 
-const getCurrentFees = () => bitcoinfees.FeesApi.recommended().then(res => res.hourFee)
+const getCurrentFees = () => bitcoinfees.FeesApi.recommended().then(res => res.fastestFee)
 
-const getTransactionFees = input_num => getCurrentFees().then( satoshi =>
-    Math.max(util.tx_calc_fee( util.tx_calc_byte(util.p2pkh_calc_input_byte(), input_num, 1), satoshi ), MIN_FEE)
-)
+const process = () => {
+    const satoshi = util.p2pkh_tx_calc_fee(1, 2)
+    console.log("P2PKH fee %d satoshi", satoshi)
+}
 
-getTransactionFees(1).then(console.log)
+const main = () => {
+    getCurrentFees().then(fee => {
+        util.BASE_BYTE_PER_SATOSHI = fee
+        process()
+    })
+}
+
+main();
+
 
 

@@ -1,17 +1,22 @@
 'use strict'
 const bitcoinfees = require('bitcoinfees-21co');
 const util = require('../');
-const MIN_FEE = 10000;
-const KEY_NUM = 3;
-const KEY_SIGN_NUM = 2;
 
+const getCurrentFees = () => bitcoinfees.FeesApi.recommended().then(res => res.fastestFee)
 
-const getCurrentFees = () => bitcoinfees.FeesApi.recommended().then(res => res.hourFee)
+const process = () => {
+    const p2sh_tx_calc_fee_2of3 = util.p2sh_tx_calc_fee_create(2, 3);
+    const satoshi = p2sh_tx_calc_fee_2of3(1, 2)
+    console.log("2of3 multisig fee %s satoshi", satoshi)
+}
 
-const getMultisigTransactionFees = (input_num, m, n) => getCurrentFees().then( satoshi =>
-    Math.max(util.tx_calc_fee( util.tx_calc_byte(util.p2sh_calc_input_byte(m,n), input_num, 1), satoshi ), MIN_FEE)
-)
+const main = () => {
+    getCurrentFees().then(fee => {
+        util.BASE_BYTE_PER_SATOSHI = fee
+        process()
+    })
+}
 
-getMultisigTransactionFees(1, KEY_SIGN_NUM, KEY_NUM).then(console.log)
+main();
 
 
