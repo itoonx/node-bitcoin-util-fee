@@ -2,9 +2,9 @@ PREVOUT: hash (32 bytes)
          index (4 bytes)
 SCRIPTSIG: length (1 byte)
            CONTENTS: push opcode (1 byte)
-                     signature (71 or 72 bytes)
+                     signature (72 bytes)
                      push opcode (1 byte)
                      pubkey (33 bytes for compressed, 65 for uncompressed)
 sequence (4 bytes)
 
-= 147 or 148
+= 148
