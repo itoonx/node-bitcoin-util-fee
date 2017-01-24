@@ -1,18 +1,34 @@
 'use strict'
 var TxFees = exports;
 
+var OPCODE_LEN = 1;
+var PUBKEY_LEN = 33 + OPCODE_LEN;
+var SIG_LEN = 73 + OPCODE_LEN;
+var PREVOUT_LEN = 32 + 4;
+var SEQUENCE_LEN = 4;
+var AMOUNT_LEN = 8;
+var LOCKTIME_LEN = 4;
+var VERSION_LEN = 4;
+var VARINT8_LEN = 1;
+var VARINT16_LEN = 3;
+var SCRIPT_PUBKEY_LEN = 20 + (OPCODE_LEN * 5); // DUP HASH160 0x14 [20byte hash] EqualVerify CheckSig
+var STATIC_INPUT_P2PKH_LEN = PREVOUT_LEN + VARINT8_LEN + SIG_LEN + PUBKEY_LEN + SEQUENCE_LEN;
+var STATIC_INPUT_P2SH_LEN = PREVOUT_LEN + VARINT16_LEN + (OPCODE_LEN * 4) + SEQUENCE_LEN;
+var STATIC_OUTPUT_LEN = AMOUNT_LEN + VARINT8_LEN + SCRIPT_PUBKEY_LEN;
+var STATIC_HEADER_LEN = VERSION_LEN + VARINT8_LEN + VARINT8_LEN + LOCKTIME_LEN;
+
 TxFees.BASE_BYTE_PER_SATOSHI = 10;
 
-TxFees.getBaseBytePerSatoshi = function(){ return TxFees.BASE_BYTE_PER_SATOSHI }
+TxFees.get_base_byte_per_satoshi = TxFees.getBaseBytePerSatoshi = function(){ return TxFees.BASE_BYTE_PER_SATOSHI }
 
-TxFees.p2pkh_calc_input_byte = function(){ return 148 }
+TxFees.p2pkh_calc_input_byte = function(){ return STATIC_INPUT_P2PKH_LEN }
 
 TxFees.p2sh_calc_input_byte = function(m, n){
-    return (74 * m) + (34 * n) + 49
+    return (SIG_LEN * m) + (PUBKEY_LEN * n) + STATIC_INPUT_P2SH_LEN
 }
 
 TxFees.tx_calc_byte = function(input_byte, input_num, output_num){
-    return (input_byte * input_num) + (34 * output_num) + 10
+    return (input_byte * input_num) + (STATIC_OUTPUT_LEN * output_num) + STATIC_HEADER_LEN
 }
 
 TxFees.tx_calc_fee = function(byte, byte_per_satoshi){
