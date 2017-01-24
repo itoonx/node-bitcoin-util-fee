@@ -2,13 +2,15 @@
 var TxFees = exports;
 
 var OPCODE_LEN = 1;
+var INT32_LEN = 4;
+var INT64_LEN = 8;
 var PUBKEY_LEN = 33 + OPCODE_LEN;
 var SIG_LEN = 72 + OPCODE_LEN;
-var PREVOUT_LEN = 32 + 4;
-var SEQUENCE_LEN = 4;
-var AMOUNT_LEN = 8;
-var LOCKTIME_LEN = 4;
-var VERSION_LEN = 4;
+var PREVOUT_LEN = 32 + INT32_LEN;
+var SEQUENCE_LEN = INT32_LEN;
+var AMOUNT_LEN = INT64_LEN;
+var LOCKTIME_LEN = INT32_LEN;
+var VERSION_LEN = INT32_LEN;
 var VARINT8_LEN = 1;
 var VARINT16_LEN = 3;
 var SCRIPT_PUBKEY_LEN = 20 + (OPCODE_LEN * 5); // DUP HASH160 0x14 [20byte hash] EqualVerify CheckSig
