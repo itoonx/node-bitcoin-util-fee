@@ -19,9 +19,12 @@ var STATIC_INPUT_P2SH_LEN = PREVOUT_LEN + VARINT16_LEN + (OPCODE_LEN * 4) + SEQU
 var STATIC_OUTPUT_LEN = AMOUNT_LEN + VARINT8_LEN + SCRIPT_PUBKEY_LEN;
 var STATIC_HEADER_LEN = VERSION_LEN + VARINT8_LEN + VARINT8_LEN + LOCKTIME_LEN;
 
-TxFees.BASE_BYTE_PER_SATOSHI = 10;
+TxFees.BASE_SATOSHI_PER_BYTE = 10;
 
-TxFees.get_base_byte_per_satoshi = TxFees.getBaseBytePerSatoshi = function(){ return TxFees.BASE_BYTE_PER_SATOSHI }
+TxFees.get_base_satoshi_per_byte = function(){ return TxFees.BASE_SATOSHI_PER_BYTE }
+
+// next delete
+TxFees.getBaseBytePerSatoshi = TxFees.get_base_satoshi_per_byte
 
 TxFees.p2pkh_calc_input_byte = function(){ return STATIC_INPUT_P2PKH_LEN }
 
@@ -38,7 +41,7 @@ TxFees.tx_calc_fee = function(byte, byte_per_satoshi){
 }
 
 TxFees.p2pkh_tx_calc_fee = function(input_num, output_num){
-    return TxFees.tx_calc_fee( TxFees.tx_calc_byte(TxFees.p2pkh_calc_input_byte(), input_num, output_num), TxFees.get_base_byte_per_satoshi() )
+    return TxFees.tx_calc_fee( TxFees.tx_calc_byte(TxFees.p2pkh_calc_input_byte(), input_num, output_num), TxFees.get_base_satoshi_per_byte() )
 }
 
 TxFees.p2pkh_tx_calc_byte = function(input_num, output_num){
@@ -48,7 +51,7 @@ TxFees.p2pkh_tx_calc_byte = function(input_num, output_num){
 TxFees.p2sh_tx_calc_fee_create = function(m, n){
     var input_byte = TxFees.p2sh_calc_input_byte(m, n)
     return function(input_num, output_num){
-        return TxFees.tx_calc_fee( TxFees.tx_calc_byte(input_byte, input_num, output_num), TxFees.get_base_byte_per_satoshi() )
+        return TxFees.tx_calc_fee( TxFees.tx_calc_byte(input_byte, input_num, output_num), TxFees.get_base_satoshi_per_byte() )
     }
 }
 

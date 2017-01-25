@@ -3,7 +3,7 @@ var assert = require('assert');
 var util = require('..');
 
 describe('test', function () {
-    util.BASE_BYTE_PER_SATOSHI = 1;
+    util.BASE_SATOSHI_PER_BYTE = 1;
     
     describe('p2pkh test', function () {
         it('p2pkh fee', function () {
