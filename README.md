@@ -12,6 +12,13 @@ npm i bitcoin-util-fee
 
 ## simple transaction-fee calculate usage
 
+please install [bitcoinfees-21co](https://www.npmjs.com/package/bitcoinfees-21co)
+
+```
+npm i bitcoinfees-21co
+```
+
+
 ### P2PKH
 
 ```
