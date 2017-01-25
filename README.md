@@ -35,7 +35,7 @@ getCurrentFees().then(fee => {
 })
 ```
 
-### p2SH n-of-m-multisig
+### P2SH n-of-m multisig
 
 
 ```
