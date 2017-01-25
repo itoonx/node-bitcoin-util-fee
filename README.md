@@ -37,7 +37,7 @@ const process = () => {
 }
 
 getCurrentFees().then(fee => {
-    feeutil.BASE_BYTE_PER_SATOSHI = fee; // initialize satoshi/byte rate
+    feeutil.BASE_SATOSHI_PER_BYTE = fee; // initialize satoshi/byte rate
     process()
 })
 ```
@@ -62,7 +62,7 @@ const process = () => {
 }
 
 getCurrentFees().then(fee => {
-    feeutil.BASE_BYTE_PER_SATOSHI = fee; // initialize satoshi/byte rate
+    feeutil.BASE_SATOSHI_PER_BYTE = fee; // initialize satoshi/byte rate
     process()
 })
 ```

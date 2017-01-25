@@ -11,7 +11,7 @@ const process = () => {
 
 const main = () => {
     getCurrentFees().then(fee => {
-        util.BASE_BYTE_PER_SATOSHI = fee
+        util.BASE_SATOSHI_PER_BYTE = fee
         process()
     })
 }
