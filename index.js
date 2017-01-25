@@ -41,9 +41,20 @@ TxFees.p2pkh_tx_calc_fee = function(input_num, output_num){
     return TxFees.tx_calc_fee( TxFees.tx_calc_byte(TxFees.p2pkh_calc_input_byte(), input_num, output_num), TxFees.get_base_byte_per_satoshi() )
 }
 
+TxFees.p2pkh_tx_calc_byte = function(input_num, output_num){
+    return TxFees.tx_calc_byte(TxFees.p2pkh_calc_input_byte(), input_num, output_num)
+}
+
 TxFees.p2sh_tx_calc_fee_create = function(m, n){
     var input_byte = TxFees.p2sh_calc_input_byte(m, n)
     return function(input_num, output_num){
         return TxFees.tx_calc_fee( TxFees.tx_calc_byte(input_byte, input_num, output_num), TxFees.get_base_byte_per_satoshi() )
+    }
+}
+
+TxFees.p2sh_tx_calc_byte_create = function(m, n){
+    var input_byte = TxFees.p2sh_calc_input_byte(m, n)
+    return function(input_num, output_num){
+        return TxFees.tx_calc_byte(input_byte, input_num, output_num)
     }
 }
